@@ -20,11 +20,12 @@ pipeline {
         stage('Build & Push Docker Image') {
             steps {
                 script {
+                    // Standard Docker CLI commands work without the Docker Pipeline plugin
                     sh "docker login -u ${DOCKER_USER} -p ${DOCKERHUB_PASS}"
-                    // Fixed: Removed the stray ')' from the next line
-                    def img = docker.build("${DOCKER_USER}/${IMAGE_NAME}:${TIMESTAMP}")
-                    img.push()
-                    img.push('latest')
+                    sh "docker build -t ${DOCKER_USER}/${IMAGE_NAME}:${TIMESTAMP} ."
+                    sh "docker push ${DOCKER_USER}/${IMAGE_NAME}:${TIMESTAMP}"
+                    sh "docker tag ${DOCKER_USER}/${IMAGE_NAME}:${TIMESTAMP} ${DOCKER_USER}/${IMAGE_NAME}:latest"
+                    sh "docker push ${DOCKER_USER}/${IMAGE_NAME}:latest"
                 }
             }
         }
