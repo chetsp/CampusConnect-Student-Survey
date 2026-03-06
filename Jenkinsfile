@@ -33,7 +33,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        cat <<EOF > kubeconfig.yaml
+cat <<EOF > kubeconfig.yaml
 apiVersion: v1
 clusters:
 - cluster:
