@@ -2,6 +2,7 @@
 ## Assignment 2 – Docker, Kubernetes & CI/CD Pipeline
 
 **Student:** Chetana Patel, Gnanitha Suryadevara
+
 **Application:** CampusConnect Student Survey  
 **Docker Hub:** [chetsp2613/campusconnect](https://hub.docker.com/r/chetsp2613/campusconnect)  
 **GitHub:** [https://github.com/chetsp/SWE-645-Spring-2026-](https://github.com/chetsp/SWE-645-Spring-2026-)
